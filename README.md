@@ -3,7 +3,8 @@
 An intelligent, easy-to-use **Loan Calculator web app** built with **Python (Flask)**, **HTML**, **CSS**, and **JavaScript**.  
 It helps users calculate **EMIs**, explore **best bank interest rates**, and learn **financial tips** — all in one interactive dashboard.
 
----
+<img width="1920" height="1080" alt="Screenshot (22)" src="https://github.com/user-attachments/assets/a994f704-60ef-41ae-9eb8-1731029b5944" />
+
 
 ## 🌟 Project Description
 
