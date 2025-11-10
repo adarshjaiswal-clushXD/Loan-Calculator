@@ -3,28 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Smart Loan Calculator + Live Bank Rates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="app">
-    <!-- ✅ Side Panel -->
-    <!-- <aside class="side-panel">
+    <!-- ✅ Sidebar -->
+    <aside class="side-panel">
       <div class="panel-header">
         <input id="bankSearch" placeholder="🔍 Search bank..." />
-        <button id="refreshBtn" type="button">⟳ Refresh</button>
+        <button id="refreshRates" type="button">⟳</button>
       </div>
-      <div id="lastUpdated" class="updated">Last updated: --</div>
-      <ul id="bankList" class="bank-list"> -->
-        <!-- Bank data dynamically injected via JS comment already -->
-      <!-- </ul>
-    </aside> -->
+      <ul id="bankList" class="bank-list"></ul>
+      <p id="lastUpdated" class="last-updated"></p>
+    </aside>
 
-    <!-- ✅ Main Loan Calculator Section -->
+    <!-- ✅ Main Content -->
     <main class="main-content">
       <div class="container">
         <h1>💰 Smart Loan Calculator</h1>
-
-        <!-- IMPORTANT: Added action="/" to send POST data properly -->
         <form method="POST" action="/">
           <label>Loan Type:</label>
           <select name="loan_type" required>
@@ -37,7 +34,7 @@
           <label>Principal Amount (₹):</label>
           <input type="number" name="principal" placeholder="e.g. 500000" required>
 
-          <label>Interest Rate (% per annum):</label>
+          <label>Interest Rate (% p.a.):</label>
           <input type="number" step="0.01" name="rate" placeholder="e.g. 8.5" required>
 
           <label>Loan Tenure (Years):</label>
@@ -51,7 +48,7 @@
           {% if result.error %}
             <p class="error">{{ result.error }}</p>
           {% else %}
-            <h2>Loan Summary</h2>
+            <h2>📊 Loan Summary</h2>
             <p><strong>EMI:</strong> ₹{{ result.emi }}</p>
             <p><strong>Total Interest:</strong> ₹{{ result.total_interest }}</p>
             <p><strong>Total Payment:</strong> ₹{{ result.total_payment }}</p>
@@ -61,7 +58,7 @@
 
         {% if selected_type %}
         <div class="bank-section">
-          <h2>🏦 Best Banks for {{ selected_type }}</h2>
+          <h2>🏦 Recommended Banks for {{ selected_type }}</h2>
           <ul>
             {% for bank in banks %}
             <li>{{ bank }}</li>
@@ -87,4 +84,3 @@
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
-
