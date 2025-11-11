@@ -46,7 +46,7 @@ It’s responsive and works smoothly across **mobile, tablet, and desktop** devi
 
 ## 🌐 Deployed Project
 
-🔗 **Live Demo:** [Smart Loan Calculator + Live Bank Rates](https://a4d48a22-f43e-485e-aec8-4da87df91677-00-sjgqwc40kf9i.sisko.replit.dev/)
+🔗 **Live Demo:** [Smart Loan Calculator + Live Bank Rates](https://loan-calculator-ocfz.onrender.com)
 
 ---
 
@@ -55,7 +55,7 @@ It’s responsive and works smoothly across **mobile, tablet, and desktop** devi
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Python (Flask)  
 - **Data:** JSON-based live or local interest rate data  
-- **Hosting:** Replit  
+- **Hosting:** Render  
 
 ---
 
