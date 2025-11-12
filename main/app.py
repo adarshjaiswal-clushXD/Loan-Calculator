@@ -33,13 +33,14 @@ def home():
             # example best banks
             best_banks = {
                 "Home Loan": ["HDFC", "SBI", "ICICI"],
-                "Car Loan": ["Axis Bank", "ICICI Bank", "IDFC First"],
-                "Personal Loan": ["HDFC Bank", "Kotak", "Bajaj Finance"],
-                "Education Loan": ["SBI", "Bank of Baroda", "Punjab National Bank"]
+                "Car Loan": ["HDFC", "SBI", "ICICI"],
+                "Personal Loan": ["HDFC", "Kotak", "ICICI"],
+                "Education Loan": ["HDFC", "SBI", "ICICI"]
             }
 
             banks = best_banks.get(selected_type, [])
             result = {
+                "principal": principal,
                 "emi": round(emi, 2),
                 "total_interest": round(total_interest, 2),
                 "total_payment": round(total_payment, 2)
