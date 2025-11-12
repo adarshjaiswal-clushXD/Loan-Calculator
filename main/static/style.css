@@ -27,12 +27,13 @@ body {
 
 /* Sidebar */
 .side-panel {
-  width: 30%;
+  width: 35%;
   background: #1f2937;
   padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  max-height: 90vh;
 }
 
 .panel-header {
@@ -47,6 +48,12 @@ body {
   border: none;
   border-radius: 6px;
   outline: none;
+  background: #374151;
+  color: #e6edf3;
+}
+
+.panel-header input::placeholder {
+  color: #9ca3af;
 }
 
 .panel-header button {
@@ -56,6 +63,11 @@ body {
   border-radius: 6px;
   padding: 8px 12px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.panel-header button:hover {
+  background: #1d4ed8;
 }
 
 .bank-list {
@@ -63,27 +75,130 @@ body {
   overflow-y: auto;
   flex: 1;
   margin-top: 10px;
+  padding-right: 5px;
 }
 
-.bank-list li {
-  padding: 8px;
+/* Custom scrollbar */
+.bank-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bank-list::-webkit-scrollbar-track {
   background: #111827;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  font-size: 0.95em;
+  border-radius: 10px;
+}
+
+.bank-list::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 10px;
+}
+
+.bank-list::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Bank Item Styles */
+.bank-item {
+  margin-bottom: 8px;
+  background: #111827;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  background: #111827;
+  transition: background 0.2s;
+}
+
+.bank-header:hover {
+  background: #1f2937;
+}
+
+.bank-name {
+  font-weight: 500;
+  color: #38bdf8;
+  font-size: 0.9em;
+  flex: 1;
+}
+
+.toggle-icon {
+  color: #9ca3af;
+  font-size: 0.8em;
+  transition: transform 0.3s;
+  margin-left: 8px;
+}
+
+.bank-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: #0f172a;
+}
+
+.bank-details.open {
+  max-height: 300px;
+  padding: 10px 12px;
+  border-top: 1px solid #1f2937;
+}
+
+.rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 0.85em;
+}
+
+.rate-label {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.rate-value {
+  color: #10b981;
+  font-weight: 600;
 }
 
 .last-updated {
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #94a3b8;
   margin-top: 10px;
   text-align: center;
+  padding: 8px;
+  background: #111827;
+  border-radius: 6px;
 }
 
 /* Main Section */
 .main-content {
   flex: 1;
   padding: 20px;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+/* Custom scrollbar for main content */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
 }
 
 h1, h2 {
@@ -99,19 +214,27 @@ form {
 }
 
 input, select {
-  padding: 8px;
+  padding: 10px;
   border-radius: 6px;
   border: none;
   outline: none;
+  background: #0c162d;
+  color: #e6edf3;
 }
 
 button[type="submit"] {
   background: #10b981;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #059669;
 }
 
 .results, .bank-section, .tips {
@@ -119,6 +242,12 @@ button[type="submit"] {
   background: #0f172a;
   padding: 15px;
   border-radius: 10px;
+  border: 1px solid #1f2937;
+}
+
+.error {
+  color: #ef4444;
+  font-weight: 500;
 }
 
 ul {
@@ -128,6 +257,15 @@ ul {
 ul li {
   margin: 6px 0;
   color: #d1d5db;
+}
+
+.results p {
+  margin: 8px 0;
+  font-size: 1.05em;
+}
+
+.results strong {
+  color: #38bdf8;
 }
 
 /* ✅ Responsive for phones */
@@ -140,14 +278,24 @@ ul li {
     width: 100%;
     flex-direction: column;
     order: 2;
+    max-height: 50vh;
   }
 
   .main-content {
     order: 1;
     padding: 15px;
+    max-height: none;
   }
 
   h1 {
     font-size: 1.4em;
+  }
+
+  .bank-name {
+    font-size: 0.85em;
+  }
+
+  .rate-item {
+    font-size: 0.8em;
   }
 }
