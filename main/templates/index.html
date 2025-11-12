@@ -49,6 +49,7 @@
             <p class="error">{{ result.error }}</p>
           {% else %}
             <h2>📊 Loan Summary</h2>
+            <p><strong>Principal Amount:</strong> ₹{{ result.principal }}</p>
             <p><strong>EMI:</strong> ₹{{ result.emi }}</p>
             <p><strong>Total Interest:</strong> ₹{{ result.total_interest }}</p>
             <p><strong>Total Payment:</strong> ₹{{ result.total_payment }}</p>
